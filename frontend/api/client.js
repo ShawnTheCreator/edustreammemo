@@ -1,5 +1,9 @@
 // API Configuration
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Use localhost for local development, deployed backend for production
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_BASE_URL = isLocalhost 
+  ? (import.meta.env.VITE_API_URL || 'http://localhost:5000/api')
+  : 'https://edustreammemo.onrender.com/api';
 
 console.log('API Client initialized with base URL:', API_BASE_URL);
 
